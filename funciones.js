@@ -1,5 +1,4 @@
 
-funciones.js
 
  
 
@@ -23,11 +22,11 @@ function calcularDisponible(ingresos, egresos){
 
 function calcularCapacidadDePago(montoDisponible){
 
-    let capasidadDePago = montoDisponible / 2;
+    let capacidadDePago = montoDisponible / 2;
 
  
 
-    return capasidadDePago;
+    return capacidadDePago;
 
 }
 
@@ -41,3 +40,20 @@ function texto (id,vari){
 
 }
 
+function calcularInteresSimple(monto,tasa, plazo){
+    let interes = monto * (tasa/100) * plazo;
+
+    return interes;
+}
+ function calcularTotalPagar(monto, interes){
+    return monto+ interes+100;
+ }
+
+ function calcularCuotaMensual(total, plazo){
+    let meses = plazo *12;
+    return total/meses;
+ }
+
+ function aprobarCredito(capacidadPago , cuotaMensual){
+    return capacidadPago >= cuotaMensual;
+ }
