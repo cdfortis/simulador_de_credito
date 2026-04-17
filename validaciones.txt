@@ -1,0 +1,7 @@
+Actua como un experto en desarrollo web y finanzas. Analiza mi formulario de Simulador de Crédito para Banco Pichincha. Implementa una función de validación en JavaScript
+Verifique que los campos no estén vacíos.
+Asegure que el monto esté entre $500 y $50,000.
+Valide que el plazo sea de 1 a 25 años.
+Verifique que los egresos no superen los ingresos.
+Muestre los mensajes de error en los elementos <small> específicos debajo de cada input y añada una clase CSS de error al borde del campo.
+Detenga el cálculo si alguna validación falla.

@@ -1,180 +1,75 @@
-/* Paleta de Colores Banco Pichincha - Fondo Oscuro */
 :root {
-    --pichincha-yellow: #ffdd00; /* Amarillo Oficial */
-    --pichincha-black: #2d2d2d;  /* Negro/Gris Muy Oscuro */
-    --pichincha-dark-gray: #3a3a3a; /* Gris Oscuro para Tarjetas */
+    --pichincha-yellow: #ffdd00;
+    --pichincha-black: #2d2d2d;
+    --pichincha-dark-gray: #3a3a3a;
     --white: #ffffff;
     --text-color: #f1f1f1;
-    --input-bg: rgba(255, 255, 255, 0.05); /* Fondo de input sutil */
+    --input-bg: rgba(255, 255, 255, 0.05);
 }
 
 body {
-    font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif;
-    background-color: var(--pichincha-black); /* Fondo Negro Tipo Gris */
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--pichincha-black);
     color: var(--text-color);
     margin: 0;
-    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Centra el simulador verticalmente */
+    min-height: 100vh;
 }
 
 .container {
-    width: 380px; /* Compacto y Elegante */
-    background-color: var(--pichincha-dark-gray); /* Tarjeta Gris Oscura */
+    width: 380px;
+    background-color: var(--pichincha-dark-gray);
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    border-top: 6px solid var(--pichincha-yellow); /* Franja lateral amarilla icónica */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-top: 6px solid var(--pichincha-yellow);
 }
 
-/* Estilo del Encabezado con GIF y Título */
-.pichincha-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
+.pichincha-header { text-align: center; margin-bottom: 20px; }
+h1 { font-size: 18px; color: var(--pichincha-yellow); text-transform: uppercase; }
+h2 { font-size: 14px; margin-top: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; }
 
-#gifPichincha {
-    width: 60px; /* Tamaño profesional del logo */
-    height: auto;
-    margin-bottom: 10px;
-    border-radius: 50%; /* Opcional, si el GIF es cuadrado */
-}
-
-h1 {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--pichincha-yellow);
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-h2 {
-    font-size: 14px;
-    color: var(--text-color);
-    margin-top: 30px;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-/* Iconos con sombra neumórfica sutil */
-h2::before {
-    content: "";
-    width: 24px;
-    height: 24px;
-    background: var(--pichincha-dark-gray);
-    border-radius: 8px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 3px 3px 6px rgba(0,0,0,0.3), -2px -2px 5px rgba(255,255,255,0.05);
-    color: var(--pichincha-yellow);
-    font-size: 12px;
-    margin-right: 10px;
-    background-image: radial-gradient(circle, var(--pichincha-yellow) 20%, transparent 20%);
-    background-size: 6px 6px;
-    background-position: center;
-}
-
-label {
-    display: block;
-    font-size: 11px;
-    font-weight: 600;
-    color: #b1b1b1;
-    margin-bottom: 6px;
-    padding-left: 2px;
-}
+label { display: block; font-size: 11px; color: #b1b1b1; margin-bottom: 4px; }
 
 input {
     width: 100%;
-    padding: 12px 14px;
-    margin-bottom: 15px;
+    padding: 10px;
+    margin-bottom: 5px; /* Reducido para dar espacio al error */
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--white);
     background: var(--input-bg);
+    color: white;
     box-sizing: border-box;
-    transition: 0.3s;
 }
 
-input:focus {
-    outline: none;
-    border-color: var(--pichincha-yellow);
-    background: rgba(255, 255, 255, 0.08);
+/* Estilos de Validación */
+.error-msg {
+    color: #ff4d4d;
+    font-size: 10px;
+    display: block;
+    margin-bottom: 10px;
+    height: 12px;
 }
 
-/* Resultados Compactos */
-p {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 5px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    margin: 0;
-    font-size: 13px;
-    color: #b1b1b1;
+.input-error {
+    border-color: #ff4d4d !important;
+    background: rgba(255, 77, 77, 0.05);
 }
 
-span {
-    font-weight: 700;
-    color: var(--text-color);
-}
+p { display: flex; justify-content: space-between; font-size: 13px; padding: 5px 0; }
+span { font-weight: bold; }
 
-/* Resaltado de la Cuota Final */
-.cuota-final span {
-    color: var(--pichincha-yellow);
-    font-size: 15px;
-}
-
-/* Estado del crédito destacada */
 #spnEstadoCredito {
     background-color: var(--pichincha-yellow);
-    color: var(--pichincha-black);
-    padding: 4px 10px;
+    color: black;
+    padding: 2px 8px;
     border-radius: 4px;
-    font-size: 10px;
-    letter-spacing: 0.5px;
+    font-size: 11px;
 }
 
-/* Botones con estilo profesional */
-.buttons {
-    margin-top: 35px;
-    display: flex;
-    gap: 12px;
-}
-
-button {
-    flex: 1;
-    padding: 14px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 12px;
-    text-transform: uppercase;
-    cursor: pointer;
-    border: none;
-    transition: 0.3s;
-}
-
-.btn-primary {
-    background-color: var(--pichincha-yellow);
-    color: var(--pichincha-black);
-}
-
-.btn-primary:hover {
-    background-color: #e6c700;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 221, 0, 0.3);
-}
-
-.btn-secondary {
-    background-color: rgba(255, 255, 255, 0.08);
-    color: #b1b1b1;
-}
-
-.btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.12);
-    color: var(--white);
-}
+.buttons { display: flex; gap: 10px; margin-top: 20px; }
+button { flex: 1; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; border: none; }
+.btn-primary { background: var(--pichincha-yellow); color: black; }
+.btn-secondary { background: rgba(255,255,255,0.1); color: white; }
