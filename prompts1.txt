@@ -1,0 +1,5 @@
+PROMPTS DE IA 
+Quiero que actues como un programador y me ayudes con la parte visual de mi simulador de credito como un aspecto empresarial
+aqui tienes mi codigo no quiero que modifiques nada ya que todo esta funcional solo busco cambiar el aspecto visual 
+me gustaria que sea los iconos con sombras y que en vez de la barra de credito aprobado o no aprobado necesito que sallga una palabra completa tal cual
+me gustaria que te enfocaras en el banco pichincha de ecuador en los colores de mi simulador de credito
