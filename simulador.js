@@ -8,20 +8,35 @@ function calcular() {
 
     // Captura de datos
     const ingresos = parseFloat(document.getElementById('txtIngresos').value);
-    const egresos = parseFloat(document.getElementById('txtEgresos').value);
+    const arriendo = parseFloat(document.getElementById('txtArriendo').value);
+    const alimentacion = parseFloat(document.getElementById('txtAlimentacion').value);
+    const varios = parseFloat(document.getElementById('txtVarios').value);
+    
     const monto = parseFloat(document.getElementById('txtMonto').value);
     const plazo = parseFloat(document.getElementById('txtPlazo').value);
     const tasa = parseFloat(document.getElementById('txtTasaInteres').value);
 
-    // Validación: Campos obligatorios y números positivos
+    // Validación: Ingresos
     if (isNaN(ingresos) || ingresos <= 0) {
         mostrarError('txtIngresos', 'errIngresos', 'Ingrese un monto de ingresos válido');
         esValido = false;
     }
-    if (isNaN(egresos) || egresos < 0) {
-        mostrarError('txtEgresos', 'errEgresos', 'Ingrese un monto de egresos válido');
+
+    // Validación: Los 3 nuevos gastos (Punto 2 de la imagen)
+    if (isNaN(arriendo) || arriendo < 0) {
+        mostrarError('txtArriendo', 'errArriendo', 'Ingrese un valor válido');
         esValido = false;
     }
+    if (isNaN(alimentacion) || alimentacion < 0) {
+        mostrarError('txtAlimentacion', 'errAlimentacion', 'Ingrese un valor válido');
+        esValido = false;
+    }
+    if (isNaN(varios) || varios < 0) {
+        mostrarError('txtVarios', 'errVarios', 'Ingrese un valor válido');
+        esValido = false;
+    }
+
+    // Validación: Datos del préstamo
     if (isNaN(monto) || monto < 500 || monto > 50000) {
         mostrarError('txtMonto', 'errMonto', 'Monto permitido: $500 - $50,000');
         esValido = false;
@@ -35,15 +50,19 @@ function calcular() {
         esValido = false;
     }
 
-    // Si algo falló, detenemos la ejecución aquí
+    // Si algo falló, detenemos la ejecución
     if (!esValido) {
         document.getElementById('spnEstadoCredito').innerText = "ERROR EN DATOS";
         document.getElementById('spnEstadoCredito').style.backgroundColor = "#e74c3c";
         return; 
     }
 
-    // 2. SECCIÓN DE CÁLCULOS (Solo se ejecuta si esValido es true)
-    const disponible = ingresos - egresos;
+    // 2. SECCIÓN DE CÁLCULOS
+    // Suma de los tres campos (Punto 3 de la imagen)
+    const totalEgresos = arriendo + alimentacion + varios;
+    
+    // El resto de cálculos (Punto 4 de la imagen)
+    const disponible = ingresos - totalEgresos;
     const capacidadPago = disponible * 0.4; // 40% de capacidad
     const meses = plazo * 12;
     const tasaMensual = (tasa / 100) / 12;
@@ -54,6 +73,7 @@ function calcular() {
     const interesPagar = totalPrestamo - monto;
 
     // 3. MOSTRAR RESULTADOS
+    document.getElementById('spnTotalEgresos').innerText = totalEgresos.toFixed(2);
     document.getElementById('spnDisponible').innerText = disponible.toFixed(2);
     document.getElementById('spnCapacidadPago').innerText = capacidadPago.toFixed(2);
     document.getElementById('spnInteresPagar').innerText = interesPagar.toFixed(2);
